@@ -1,7 +1,7 @@
 package com.stone.lol.user.service;
 
 import com.stone.lol.user.enums.LoginStatEnum;
-import com.stone.lol.user.model.User;
+import com.stone.lol.user.entity.po.User;
 import org.springframework.stereotype.Service;
 
 @Service

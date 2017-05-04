@@ -1,7 +1,7 @@
 package com.stone.lol.user.controller;
 
 import com.stone.lol.common.service.LogService;
-import com.stone.lol.user.model.User;
+import com.stone.lol.user.entity.po.User;
 import com.stone.lol.user.service.OperationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
