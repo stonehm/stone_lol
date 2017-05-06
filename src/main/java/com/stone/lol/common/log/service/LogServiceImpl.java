@@ -1,4 +1,4 @@
-package com.stone.lol.common.service;
+package com.stone.lol.common.log.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +13,7 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public void addLog(String msg) {
+
         logger.info("msg={}", msg);
     }
 }

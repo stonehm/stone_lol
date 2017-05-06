@@ -1,4 +1,4 @@
-package com.stone.lol.common.service;
+package com.stone.lol.common.log.service;
 
 /**
  * Created by Lenovo on 2017/5/3.
