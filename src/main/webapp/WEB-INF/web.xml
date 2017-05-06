@@ -18,6 +18,12 @@
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
+    <listener>
+        <listener-class>
+            com.stone.lol.common.listener.SessionListener
+        </listener-class>
+    </listener>
+
 
     <servlet>
         <servlet-name>spring-mvc</servlet-name>
@@ -35,7 +41,7 @@
         <servlet-name>spring-mvc</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
+
     <error-page>
         <error-code>401</error-code>
         <location>/common/error.jsp</location>

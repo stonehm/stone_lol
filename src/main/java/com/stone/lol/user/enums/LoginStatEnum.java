@@ -4,11 +4,10 @@ package com.stone.lol.user.enums;
  * 登录状态
  */
 public enum LoginStatEnum {
-    SUCCESS(1,"秒杀成功"),
-    END(0,"秒杀结束"),
-    REPEAT_KILL(-1,"重复秒杀"),
-    INNER_ERROR(-2,"系统异常"),
-    DATA_REWRITE(-3,"数据篡改");
+    SUCCESS(1, "登录成功"),
+    LOCKED(0, "账号被锁"),
+    NOT_FOUND(-1, "用户不存在"),
+    PASSWORD_ERROR(-2, "密码错误");
 
     private int state;
 

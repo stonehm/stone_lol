@@ -1,6 +1,6 @@
 package com.stone.lol.user.controller;
 
-import com.stone.lol.common.service.LogService;
+import com.stone.lol.common.log.service.LogService;
 import com.stone.lol.user.entity.po.User;
 import com.stone.lol.user.service.ManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class ManagementController {
         user.setPassword(password);
         System.out.println(username + "," + password);
         managementService.add(user);
-        logService.addLog("用户添加");
+        logService.addLog(user, "用户添加");
         return "hello";
     }
 }

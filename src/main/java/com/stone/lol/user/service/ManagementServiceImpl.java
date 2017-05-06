@@ -24,18 +24,21 @@ public class ManagementServiceImpl implements ManagementService {
     }
 
     @Override
-    public void remove() {
+    public void remove(String id) {
+        if (id != null && !"".equals(id))
+            userDao.delete(id);
+    }
+
+    @Override
+    public void update(User user) {
 
     }
 
     @Override
-    public void update() {
-
-    }
-
-    @Override
-    public void getByUsername() {
-
+    public User getByUsername(String username) {
+        if (username == null || "".equals(username))
+            return null;
+        return userDao.getByUsername(username);
     }
 
     @Override

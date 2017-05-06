@@ -1,7 +1,9 @@
 package com.stone.lol.user.dao;
 
 import com.stone.lol.user.entity.po.User;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -26,17 +28,21 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void delete(String id) {
-
+        User user = new User();
+        user.setId(id);
+        sessionFactory.getCurrentSession().delete(user);
     }
 
     @Override
     public void update(User user) {
-
+        sessionFactory.getCurrentSession().update(user);
     }
 
     @Override
-    public User getByUsername() {
-        return null;
+    public User getByUsername(String username) {
+        Session session = sessionFactory.getCurrentSession();
+        List list = session.createCriteria(User.class).add(Restrictions.eq("username", username)).list();
+        return list.size() > 0 ? (User) list.get(0) : null;
     }
 
     @Override

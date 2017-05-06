@@ -10,11 +10,11 @@ import com.stone.lol.user.entity.po.User;
 public interface ManagementService {
     void add(User user);
 
-    void remove();
+    void remove(String id);
 
-    void update();
+    void update(User user);
 
-    void getByUsername();
+    User getByUsername(String username);
 
     void getList();
 }

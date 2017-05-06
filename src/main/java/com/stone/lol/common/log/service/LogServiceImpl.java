@@ -1,19 +1,30 @@
 package com.stone.lol.common.log.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import com.stone.lol.common.log.entity.po.Log;
+import com.stone.lol.user.entity.po.User;
 
-/**
- * Created by Lenovo on 2017/5/3.
- */
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
+
 @Service
+@Transactional
 public class LogServiceImpl implements LogService {
-    private static final Logger logger = LoggerFactory.getLogger(LogService.class);
+
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Override
-    public void addLog(String msg) {
-
-        logger.info("msg={}", msg);
+    public void addLog(User user, String msg) {
+        Session session = sessionFactory.getCurrentSession();
+        Log log = new Log();
+        log.setUsername(user.getUsername());
+        log.setTime(new Date());
+        log.setDetails(msg);
+        session.save(log);
     }
 }
