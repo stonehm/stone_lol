@@ -1,5 +1,6 @@
 package com.stone.lol.user.service;
 
+import com.stone.lol.user.entity.po.Authority;
 import com.stone.lol.user.entity.po.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,20 +28,27 @@ public class ManagementServiceImplTest {
     @Test
     public void add() throws Exception {
         User user = new User();
+        Authority authority = new Authority();
+        authority.setName("管理员");
+        authority.setLevel(99);
+        authority.setId("40a0b1f3330411e7a9620023248ece0e");
         user.setUsername("admin");
         user.setPassword("admin123");
+        user.setName("孙皓亮");
+        user.setAuthority(authority);
         managementService.add(user);
     }
 
     @Test
     public void remove() throws Exception {
-        managementService.remove("8a506a085bdb657d015bdb658313000011");
+        managementService.remove("8a506a085bdb657d015bdb6583130000");
     }
 
     @Test
     public void getByUsername() throws Exception {
-        User user = managementService.getByUsername("admin123");
+        User user = managementService.getByUsername("adminH");
         logger.info(user.getId());
+        logger.info(user.getAuthority().getName());
     }
 
 

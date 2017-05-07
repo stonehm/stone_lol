@@ -19,8 +19,12 @@ public class ManagementServiceImpl implements ManagementService {
     private UserDao userDao;
 
     @Override
-    public void add(User user) {
+    public boolean add(User user) {
+        if (user == null || user.getUsername() == null || user.getPassword() == null || user.getName() == null)
+            return false;
+        if (getByUsername(user.getUsername()) != null) return false;
         userDao.add(user);
+        return true;
     }
 
     @Override

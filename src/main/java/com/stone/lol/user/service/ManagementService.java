@@ -8,7 +8,7 @@ import com.stone.lol.user.entity.po.User;
  * Time: 15:20
  */
 public interface ManagementService {
-    void add(User user);
+    boolean add(User user);
 
     void remove(String id);
 

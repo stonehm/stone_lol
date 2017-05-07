@@ -6,9 +6,7 @@ import com.stone.lol.user.enums.LoginStatEnum;
 import com.stone.lol.user.service.OperationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -28,12 +26,12 @@ public class OperationController {
         this.logService = logService;
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+    @GetMapping("login")
     public String loginGet() {
         return "user/login";
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.POST)
+    @PostMapping("login")
     public String login(@ModelAttribute("username") String username, @ModelAttribute("password") String password, HttpSession session) {
         User user = new User();
         user.setUsername(username);
