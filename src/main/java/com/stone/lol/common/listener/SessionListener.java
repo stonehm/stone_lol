@@ -1,8 +1,4 @@
-package com.stone.lol.common.listener; /**
- * User: 孙皓亮
- * Date: 2017/5/5
- * Time: 9:26
- */
+package com.stone.lol.common.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +6,11 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+/**
+ * User: 孙皓亮
+ * Date: 2017/5/5
+ * Time: 9:26
+ */
 public class SessionListener implements HttpSessionListener {
 
     private static final Logger logger = LoggerFactory.getLogger(SessionListener.class);

@@ -14,10 +14,10 @@ public final class DesService {
 
     private static final String KEY_ALGORITHM = "DES";
 
-    private static String key;
+    private String key;
 
-    public static void setKey(String key) {
-        DesService.key = key;
+    public void setKey(String key) {
+        this.key = key;
     }
 
     /**

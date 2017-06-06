@@ -11,8 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class OperationServiceImpl implements OperationService {
 
+    private final UserDao userDao;
+
     @Autowired
-    private UserDao userDao;
+    public OperationServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Override
     public LoginStatEnum login(User user) {

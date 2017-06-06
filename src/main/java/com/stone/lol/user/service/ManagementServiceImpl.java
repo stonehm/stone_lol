@@ -15,8 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ManagementServiceImpl implements ManagementService {
 
+    private final UserDao userDao;
+
     @Autowired
-    private UserDao userDao;
+    public ManagementServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Override
     public boolean add(User user) {
