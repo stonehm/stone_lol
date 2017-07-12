@@ -17,7 +17,7 @@ public class Authority {
     private String id;
     @Column(length = 10)
     private String name;
-    @Column(length = 1)
+    @Column()
     private Integer level;
 
     public String getId() {

@@ -55,5 +55,9 @@
             <mvc:mapping path="/stone/**"/>
             <bean class="com.stone.lol.common.interceptor.RequestInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/stone/core/**"/>
+            <bean class="com.stone.lol.core.interceptor.CoreInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 </beans>

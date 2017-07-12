@@ -8,15 +8,17 @@
 
     <context:component-scan base-package="com.stone.lol.*.dao"/>
     <context:property-placeholder location="classpath:jdbc.properties"
-                                  file-encoding="utf-8" ignore-unresolvable="true" />
+                                  file-encoding="utf-8" ignore-unresolvable="true"/>
 
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <list>
                 <!-- 可以加多个包 -->
+                <value>com.stone.lol.common.entity.po</value>
                 <value>com.stone.lol.common.log.entity.po</value>
+                <value>com.stone.lol.core.entity.po</value>
                 <value>com.stone.lol.user.entity.po</value>
             </list>
         </property>
@@ -38,5 +40,5 @@
           p:testConnectionOnCheckin="${jdbc.c3p0.testConnectionOnCheckin}"
           p:idleConnectionTestPeriod="${jdbc.c3p0.idleConnectionTestPeriod}"
           p:initialPoolSize="${jdbc.c3p0.initialPoolSize}" p:minPoolSize="${jdbc.c3p0.minPoolSize}"
-          p:maxPoolSize="${jdbc.c3p0.maxPoolSize}" p:maxIdleTime="${jdbc.c3p0.maxIdleTime}" />
+          p:maxPoolSize="${jdbc.c3p0.maxPoolSize}" p:maxIdleTime="${jdbc.c3p0.maxIdleTime}"/>
 </beans>
