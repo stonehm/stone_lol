@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 /**
  * Created by Lenovo on 2017/6/10.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/spring-*.xml"})
+@ContextConfiguration(locations = {"classpath:spring/spring-dao.xml","classpath:spring/spring-service.xml"})
 public class DictionaryServiceImplTest {
 
     @Autowired
@@ -30,7 +32,7 @@ public class DictionaryServiceImplTest {
         Dictionary p = new Dictionary();
         p.setId("402881e45c91e90d015c91e911220000");
         dic.setParent(p);
-        dic.setName("德玛西亚");
+        dic.setName("其他");
         dictionaryService.add(dic);
     }
 
@@ -41,7 +43,9 @@ public class DictionaryServiceImplTest {
 
     @Test
     public void update() throws Exception {
-
+        List list = dictionaryService.getDictionaryByParent("402881e45c91e90d015c91e911220000");
+        ((Dictionary)list.get(0)).setName("网通");
+        dictionaryService.update((Dictionary) list.get(0));
     }
 
     @Test
